@@ -22,11 +22,12 @@ static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_
 	char c;
 	int i;
 	if(copy_from_user(&c, buf, sizeof(char)))
-		return -EFAULT;
+	return -EFAULT;
+
 	if(c == '1'){
 		gpio_base[10] = 1 << 25;
 		msleep(500);
-		 for(i = 0; i < 15; i++){
+		for(i = 1; i < 16; i++){
 			 if(i == 1 || i == 2 || i == 5 || i ==7 || i==9){
 				 gpio_base[7] = 1 << 25;
 				 msleep(200);
@@ -34,21 +35,24 @@ static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_
 				 msleep(200);
 			 }else if(i == 3 || i == 6 || i == 8 || i == 11 || i == 12 || i == 13 || i == 14){
 				 gpio_base[7] = 1 << 25;
-				 msleep(600);
+				 msleep(800);
 				 gpio_base[10] = 1 << 25;
 				 msleep(200);
 			 }else if(i == 4 || i == 10 || i == 15){
 				 gpio_base[10] = 1 << 25;
 				 msleep(600);
 			 }
-			 msleep(500);
-		 }else{
-			 for(i =0; i < 5; i++)
-				 gpio_base[7] = 1 << 25;
-				 msleep(100);
-				 gpio_base[10] = 1 << 25;
-				 msleep(100);
-			 }
+		}	 
+		gpio_base[10] = 1 << 25;
+	}else{
+		for(i = 0; i < 7; i++){
+			 gpio_base[7] = 1 << 25;
+			 msleep(100);
+			 gpio_base[10] = 1 << 25;
+			 msleep(100);
+		}
+		gpio_base[10] = 1 << 25;
+	}
 	 return 1;
 }
 
