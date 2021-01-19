@@ -5,6 +5,11 @@ LEDの点滅を利用し特定の信号を受け取った時モーレス信号�
 ## 動作環境
 ・Rasberry Pi 4 ModelB
 ・Ubuntu 18.04 LTS
+## 使用したもの
+・LED(赤)
+・抵抗300Ω
+・ブレットボード
+・ジャンパー線
 ## インストール方法
 ```
 $ git clone https://github.com/kudoken0905/robotsys2020.git  
