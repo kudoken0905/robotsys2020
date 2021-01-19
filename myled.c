@@ -6,7 +6,7 @@
 #include <linux/io.h>
 #include <linux/delay.h>
 
-MODULE_AUTHOR("Kenta Kudo and Ryuichi Ueda");
+MODULE_AUTHOR("Kenta Kudo and Ryuichi Ueda and Yuya Hasegawa and Takaya Sakamoto");
 MODULE_DESCRIPTION("driver for LED control");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.0.1");
